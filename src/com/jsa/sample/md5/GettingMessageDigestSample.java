@@ -8,6 +8,9 @@ import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * ファイルのハッシュダイジェストを取得するサンプルプログラム
+ */
 public class GettingMessageDigestSample {
 
   public static void main(String[] args) throws FileNotFoundException {
@@ -21,9 +24,9 @@ public class GettingMessageDigestSample {
   }
 
   /**
-   * 
-   * @param file
-   * @return
+   * ハッシュダイジェストを取得する
+   * @param file 入力ファイル
+   * @return ハッシュダイジェスト
    */
   private static String getFileMessageDigest(File file){
     // Fileが存在しなければnullを返す
@@ -42,6 +45,7 @@ public class GettingMessageDigestSample {
         // (For update digest.)
       }
       
+      // バイトを2桁の16進数の文字列に変換し連結する
       byte[] digest = md.digest();
       for (int idx=0;idx<digest.length;++idx) {
         sb.append(String.format("%02x", digest[idx]));
